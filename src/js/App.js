@@ -104,7 +104,7 @@ const LoadFirstProduct = () => {
             productDescription.innerText = firstProduct.description;
             let productBadges = result.querySelector(".product-badges");
             firstProduct.badges.forEach(item => {
-                let badgeDiv = "<div class='badge-div'><img class='badge-image' src='/src/img/" + item.icon + "' />" + item.text + "</div>";
+                let badgeDiv = "<div class='badge-div'><img class='badge-image' src='" + GetImagePath(item.icon) + "' />" + item.text + "</div>";
                 productBadges.innerHTML += badgeDiv;
             });
             let buyOnceLabel = result.querySelector(".buy-once-label");
@@ -229,7 +229,7 @@ const LoadYouMayAlsoLike = () => {
                 itemDiv.className = index === 0 ? "carousel-item active" : "carousel-item";
 
                 let card = "<div class='card'><img class='d-block card-image' src='";
-                card += '/src/img/' + item.imageSrc;
+                card += GetImagePath(item.imageSrc)
                 card += "'><div class='card-body'><h5 class='card-title'>"
                 card += item.title;
                 card += "</h5><p class='card-text'>";
@@ -253,18 +253,7 @@ const LoadYouMayAlsoLike = () => {
         }).catch(error => console.error('Error loading the partial carousel file:', error));
 }
 
-// const MapProductsToHTMLForCarousel = () => {
-//     let result = "";
-//     products.forEach(item => {
-//         result += "<div class='card'>";
-//         result += "<img src='/src/img/" + item.imageSrc + "' class='d-block w-100'>";
-
-//     })
-// }
-
-
 const GetImagePath = imageFileName => {
-    // return "./src/img/" + imageFileName;
     return path.resolve("./src", "img", imageFileName);
 }
 
