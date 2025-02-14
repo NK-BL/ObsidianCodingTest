@@ -83,7 +83,7 @@ const LoadFirstProduct = () => {
     let firstProduct = products.find(x => x.id === 1);
     let contentDiv = document.getElementById("content-div");
 
-    fetch(path.resolve("./src", "_productPartial.html"))
+    fetch("templates/_productPartial.html")
         .then(response => response.text())
         .then(html => {
             let result = document.createElement("div");
@@ -217,7 +217,7 @@ const LoadFirstProduct = () => {
 const LoadYouMayAlsoLike = () => {
     let contentDiv = document.getElementById("content-div");
 
-    fetch(path.resolve("./src", "_youMayAlsoLikePartial.html"))
+    fetch("templates/_youMayAlsoLikePartial.html")
         .then(response => response.text())
         .then(html => {
             let result = document.createElement("div");
@@ -255,7 +255,7 @@ const LoadYouMayAlsoLike = () => {
 }
 
 const GetImagePath = imageFileName => {
-    return path.resolve("./src", "img", imageFileName);
+    return path.resolve("./img", imageFileName);
 }
 
 
